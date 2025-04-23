@@ -52,7 +52,7 @@
       <button class="nav-button" onclick="viewer.setPanorama(btd)">Bathroom</button>
       <button class="nav-button" onclick="viewer.setPanorama(cent)">Corridor</button>
       <button class="nav-button" onclick="viewer.setPanorama(kitch1)">Kitchen</button>
-      <button class="nav-button" onclick="viewer.setPanorama(living1)">Living Room</button>
+      <button class="nav-button" onclick="viewer.setPanorama(living2)">Living Room</button>
       <button class="nav-button" onclick="viewer.setPanorama(bed1)">Bedroom Entrance</button>
       <button class="nav-button" onclick="viewer.setPanorama(bed2)">Bedroom</button>
     </div>
@@ -73,7 +73,7 @@
     const btd = new PANOLENS.ImagePanorama('btd.png');
     const cent = new PANOLENS.ImagePanorama('cent.png');
     const kitch1 = new PANOLENS.ImagePanorama('kitch1.png');
-    const living1 = new PANOLENS.ImagePanorama('living1.png');
+    const living2 = new PANOLENS.ImagePanorama('living2.png');
     const bed1 = new PANOLENS.ImagePanorama('bed1.png');
     const bed2 = new PANOLENS.ImagePanorama('bed2.png');
 
@@ -83,7 +83,7 @@
       autoRotate: false
     });
 
-    viewer.add(bte, btd, cent, kitch1, living1, bed1, bed2);
+    viewer.add(bte, btd, cent, kitch1, living2, bed1, bed2);
     viewer.setPanorama(cent); // Start with Corridor
   </script>
 </body>
