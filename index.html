@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Virtual Tour - Buttons</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+    #buttons {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    .nav-button {
+      padding: 10px 16px;
+      margin: 0 5px;
+      font-size: 14px;
+      background-color: #ffffffcc;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .nav-button:hover {
+      background-color: #ddd;
+    }
+    #panorama {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="buttons">
+    <!-- Panoramy -->
+    <button class="nav-button" onclick="viewer.setPanorama(bte)">Bathroom Entrance</button>
+    <button class="nav-button" onclick="viewer.setPanorama(btd)">Bathroom</button>
+    <button class="nav-button" onclick="viewer.setPanorama(cent)">Corridor</button>
+    <button class="nav-button" onclick="viewer.setPanorama(kitch1)">Kitchen</button>
+    <button class="nav-button" onclick="viewer.setPanorama(living1)">Living Room</button>
+    <button class="nav-button" onclick="viewer.setPanorama(bed1)">Bedroom Entrance</button>
+    <button class="nav-button" onclick="viewer.setPanorama(bed2)">Bedroom</button>
+
+    <!-- Floorplany -->
+    <button class="nav-button" onclick="window.open('floor1.png')">Floor Plan 1</button>
+    <button class="nav-button" onclick="window.open('floor2.png')">Floor Plan 2</button>
+    <button class="nav-button" onclick="window.open('floor3.png')">Floor Plan 3</button>
+  </div>
+
+  <div id="panorama"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.105.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/pchen66/panolens.js@0.10.2/build/panolens.min.js"></script>
+
+  <script>
+    // Panoramy
+    const bte = new PANOLENS.ImagePanorama('bte.png');
+    const btd = new PANOLENS.ImagePanorama('btd.png');
+    const cent = new PANOLENS.ImagePanorama('cent.png');
+    const kitch1 = new PANOLENS.ImagePanorama('kitch1.png');
+    const living1 = new PANOLENS.ImagePanorama('living1.png');
+    const bed1 = new PANOLENS.ImagePanorama('bed1.png');
+    const bed2 = new PANOLENS.ImagePanorama('bed2.png');
+
+    const viewer = new PANOLENS.Viewer({
+      container: document.querySelector('#panorama'),
+      output: 'console',
+      autoRotate: false
+    });
+
+    viewer.add(bte, btd, cent, kitch1, living1, bed1, bed2);
+    viewer.setPanorama(bte); // Start with Bathroom Entrance
+  </script>
+</body>
+</html>
