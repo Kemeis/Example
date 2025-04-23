@@ -16,6 +16,15 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .nav-button {
       padding: 10px 16px;
@@ -38,19 +47,20 @@
 </head>
 <body>
   <div id="buttons">
-    <!-- Panoramy -->
-    <button class="nav-button" onclick="viewer.setPanorama(bte)">Bathroom Entrance</button>
-    <button class="nav-button" onclick="viewer.setPanorama(btd)">Bathroom</button>
-    <button class="nav-button" onclick="viewer.setPanorama(cent)">Corridor</button>
-    <button class="nav-button" onclick="viewer.setPanorama(kitch1)">Kitchen</button>
-    <button class="nav-button" onclick="viewer.setPanorama(living1)">Living Room</button>
-    <button class="nav-button" onclick="viewer.setPanorama(bed1)">Bedroom Entrance</button>
-    <button class="nav-button" onclick="viewer.setPanorama(bed2)">Bedroom</button>
-
-    <!-- Floorplany -->
-    <button class="nav-button" onclick="window.open('floor1.png')">Floor Plan 1</button>
-    <button class="nav-button" onclick="window.open('floor2.png')">Floor Plan 2</button>
-    <button class="nav-button" onclick="window.open('floor3.png')">Floor Plan 3</button>
+    <div class="button-row">
+      <button class="nav-button" onclick="viewer.setPanorama(bte)">Bathroom Entrance</button>
+      <button class="nav-button" onclick="viewer.setPanorama(btd)">Bathroom</button>
+      <button class="nav-button" onclick="viewer.setPanorama(cent)">Corridor</button>
+      <button class="nav-button" onclick="viewer.setPanorama(kitch1)">Kitchen</button>
+      <button class="nav-button" onclick="viewer.setPanorama(living1)">Living Room</button>
+      <button class="nav-button" onclick="viewer.setPanorama(bed1)">Bedroom Entrance</button>
+      <button class="nav-button" onclick="viewer.setPanorama(bed2)">Bedroom</button>
+    </div>
+    <div class="button-row">
+      <button class="nav-button" onclick="window.open('floor1.png')">Floor Plan 1</button>
+      <button class="nav-button" onclick="window.open('floor2.png')">Floor Plan 2</button>
+      <button class="nav-button" onclick="window.open('floor3.png')">Floor Plan 3</button>
+    </div>
   </div>
 
   <div id="panorama"></div>
@@ -59,7 +69,6 @@
   <script src="https://cdn.jsdelivr.net/gh/pchen66/panolens.js@0.10.2/build/panolens.min.js"></script>
 
   <script>
-    // Panoramy
     const bte = new PANOLENS.ImagePanorama('bte.png');
     const btd = new PANOLENS.ImagePanorama('btd.png');
     const cent = new PANOLENS.ImagePanorama('cent.png');
@@ -75,7 +84,7 @@
     });
 
     viewer.add(bte, btd, cent, kitch1, living1, bed1, bed2);
-    viewer.setPanorama(bte); // Start with Bathroom Entrance
+    viewer.setPanorama(cent); // Start with Corridor
   </script>
 </body>
 </html>
