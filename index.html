@@ -85,6 +85,42 @@
 
     viewer.add(bte, btd, cent, kitch1, living2, bed1, bed2);
     viewer.setPanorama(cent); // Start with Corridor
+
+    // Get the panorama from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const panoramaParam = urlParams.get('panorama');
+
+    if (panoramaParam) {
+      // Dynamically set the panorama based on the URL parameter
+      switch(panoramaParam) {
+        case 'bathroom_entrance':
+          viewer.setPanorama(bte);
+          break;
+        case 'bathroom':
+          viewer.setPanorama(btd);
+          break;
+        case 'corridor':
+          viewer.setPanorama(cent);
+          break;
+        case 'kitchen':
+          viewer.setPanorama(kitch1);
+          break;
+        case 'living_room':
+          viewer.setPanorama(living2);
+          break;
+        case 'bedroom_entrance':
+          viewer.setPanorama(bed1);
+          break;
+        case 'bedroom':
+          viewer.setPanorama(bed2);
+          break;
+        default:
+          // If the parameter doesn't match, use the default panorama
+          viewer.setPanorama(cent);
+          break;
+      }
+    }
   </script>
+
 </body>
 </html>
